@@ -20,7 +20,7 @@ npsd = psd./max(psd);   % psd归一化
 
 
 [pks,fma,fw] = findpeaks(npsd,freq,'minpeakwidth',0.9,'minpeakheight',0.05,'minpeakprominence',0.025);
-if length(pks) == 0
+if isempty(pks)
     disp('频谱无峰')
     x0=[]; sigk_ini=[];
     return;

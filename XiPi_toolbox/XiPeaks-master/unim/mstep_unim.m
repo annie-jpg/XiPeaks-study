@@ -23,11 +23,10 @@ nfreq = length(freq);
 for k=1:ank
     if k == 1
         prescription = slmset('plot','off','k',...
-           floor(nfreq/3),'predictions',nfreq,'minvalue',0,'decreasing','on','leftvalue',sigk_sdo(1));
+           floor(nfreq/2),'predictions',nfreq,'minvalue',0,'decreasing','on','leftvalue',sigk_sdo(1));
     else
-      [~,center] = max(sigk_sdo(:,k));
         prescription = slmset('plot','off','k',floor(nfreq/4),...
-            'predictions',nfreq,'minvalue',0,'leftmaxvalue',0,'simplepeak',freq(center));
+            'predictions',nfreq,'minvalue',0,'leftmaxvalue',0);
     end
 
     [~,~,yp] = slmengine(freq,sigk_sdo(:,k),prescription); 

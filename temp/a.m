@@ -1,8 +1,7 @@
-settings =  struct('peak_width_limits', [1, 3]);
-fooof_results = fooof(freq(2:end),spt(2:end), [0 50], settings, 1);
-
-plot(fooof_results.freqs,10.^fooof_results.power_spectrum)
+plot(freq,psd_real,'linewidth',4,'color','black')
+set(gca,'fontName','Arial','fontSize',14,'Box','off','fontWeight','bold','xtick',[],'ytick',[])
 hold on
-plot(fooof_results.freqs,10.^fooof_results.ap_fit)
-plot(fooof_results.freqs,10.^fooof_results.fooofed_spectrum)
-ylim([0 250])
+plot(freq,sigk_ini(:,1),'linewidth',3,'color','#EDB120')
+plot(freq,sigk_ini(:,2),'linewidth',3,'color','green')
+plot(freq,sigk_ini(:,3),'linewidth',3,'color','blue')
+plot(freq,sigk_ini(:,4),'linewidth',3,'color','#4DBEEE')
