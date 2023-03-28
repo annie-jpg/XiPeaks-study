@@ -24,11 +24,19 @@ for k=1:ank
     if k == 1
         prescription = slmset('plot','off','k',...
            floor(nfreq/2),'predictions',nfreq,'minvalue',0,'decreasing','on','leftvalue',sigk_sdo(1));
+       [~,~,yp] = slmengine(freq,sigk_sdo(:,k),prescription); 
     else
-        prescription = slmset('plot','off','k',floor(nfreq/4),...
-            'predictions',nfreq,'minvalue',0,'leftmaxvalue',0);
+        [~,loc] = max(sigk_sdo(:,k));
+        center = freq(loc);
+        % 左半边
+        prescription = slmset('plot','off','k',floor(nfreq/3),'increasing','on',...
+            'predictions',loc,'minvalue',0,'leftmaxvalue',0);
+        [~,~,y1] = slmengine(freq(1:loc),sigk_sdo(1:loc,k),prescription); 
+        % 右半边
+        prescription = slmset('plot','off','k',floor(nfreq/3),'decreasing','on',...
+            'predictions',nfreq-loc,'minvalue',0);
+        [~,~,y2] = slmengine(freq(loc+1:end),sigk_sdo(loc+1:end,k),prescription); 
+        yp = [y1';y2'];
     end
-
-    [~,~,yp] = slmengine(freq,sigk_sdo(:,k),prescription); 
     sigk_up(:,k) = yp;
 end

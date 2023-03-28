@@ -1,9 +1,9 @@
 clc;clear;close all;
 
 % 对比number of peaks
-load standard.mat peakNums
-load  FOF_results.mat FOF_peaks_num
-load  XiPi_results.mat XiPi_peaks_num
+load standard3.mat peakNums
+load  FOF_results3.mat FOF_peaks_num
+load  XiPi_results3.mat XiPi_peaks_num
 
 % bubble - XiPi nums
 t = tiledlayout(1,1);

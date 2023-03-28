@@ -1,4 +1,3 @@
-% Figure1 - Strangely shaped spectrum
 clc;clear;
 
 load IEEG1772_data.mat
@@ -14,8 +13,19 @@ freq = f(2:101)';
 % normalize
 m = max(pxx,[],2);
 pxxN = pxx./m;
-dat = pxxN';
 
+clust = kmeans(pxxN,3);
+
+[silh3,h] = silhouette(pxxN,clust);
+xlabel('Silhouette Value')
+ylabel('Cluster')
+
+% plot
+c1 = pxxN(clust==1,:);
+c2 = pxxN(clust==2,:);
+c3 = pxxN(clust==3,:);
+
+dat = c3';
 fh=figure(1);clf;
 y = (mean(dat'))';
 e = (std(dat'))';
@@ -28,7 +38,6 @@ plot(freq,y,'-b','LineWidth',2);
 
 set(gca,'xtick',[],'xticklabel',[])
 set(gca,'ytick',[],'yticklabel',[])
-xlabel('freq/Hz');
-ylabel('power');
-set(gca,'fontWeight','bold','fontName','Arial','fontSize',12)
-title('Precentral gyrus - 123ch')
+xlabel('freq');
+ylabel('Power');
+set(gca,'fontName','Arial','fontSize',20,'fontWeight','bold')

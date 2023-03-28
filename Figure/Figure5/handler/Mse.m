@@ -1,8 +1,8 @@
 clc;clear;close all;
 % 计算mse
-load standard.mat AC CC PC
-load  FOF_results.mat FOF_AC FOF_PC 
-load  XiPi_results.mat XiPi_AC XiPi_PC
+load standard3.mat AC CC PC
+load  FOF_results3.mat FOF_AC FOF_PC 
+load  XiPi_results3.mat XiPi_AC XiPi_PC
 
 FOF_PC_mse = zeros(100,1);
 XiPi_PC_mse = zeros(100,1);
@@ -21,7 +21,7 @@ for i = 1 : 100
     FOF_AC_mse(i) = mse(error_ac_f);
 end
 
-save mse.mat FOF_PC_mse XiPi_PC_mse FOF_AC_mse XiPi_AC_mse
+% save mse.mat FOF_PC_mse XiPi_PC_mse FOF_AC_mse XiPi_AC_mse
 
 % plot
 % pairboxplot
@@ -49,13 +49,13 @@ boxplot(Y,'Symbol','o','OutlierSize',3,'Colors',[0,0,0]);
 
 % 坐标区域属性设置
 ax=gca;hold on;
-ax.LineWidth=1.1;
-ax.FontSize=11;
+ax.LineWidth=0.8;
+ax.FontSize=13;
 ax.FontName='Arial';
 ax.XTickLabel={'ξ-π','FOOOF','ξ-π','FOOOF'};
 ax.Title.String='The simulation quantitative analysis';
 ax.Title.FontSize=13;
-ax.YLabel.String='log10(MSE)';
+ax.YLabel.String='Log(MSE)';
 
 % 修改线条粗细
 lineObj=findobj(gca,'Type','Line');

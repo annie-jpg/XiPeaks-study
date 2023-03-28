@@ -20,6 +20,6 @@ plot(freq,y,'-b','LineWidth',2);
 
 set(gca,'xtick',[],'xticklabel',[])
 set(gca,'ytick',[],'yticklabel',[])
-xlabel('freq/Hz');
-ylabel('power');
-title('Cuba scalp eeg - 130ch')
+xlabel('freq');
+ylabel('Power');
+set(gca,'fontName','Arial','fontSize',20,'fontWeight','bold')

@@ -14,12 +14,14 @@ n=0:N-1; t = n/fs;
 
 PC = [];
 peakNums = zeros(1,100);
-A = [8 11 14 17 20 23 26 29 32 35 38 41 44 47];
+A = [5 8 11 14 17 20 23 26 29 32 35 38 41 44 47];
+peakMap = zeros(50,100);  % freq * sample
 for i = 1:100
     ac = AC(i,:);
     pc = zeros(1,13600);
     peakNum = randi(6,1,1)-1; % 0-5
     CF = A(randperm(numel(A),peakNum));
+    peakMap(CF,i) = 1;
     PW = rand(1,peakNum)*2-1 + p(x(i)); 
     
     for j = 1:peakNum
@@ -33,4 +35,4 @@ end
 % 3. 混合AC PC -> CC
 CC = AC + PC;
 
-save standard.mat CC AC PC peakNums 
+save standard.mat CC AC PC peakNums peakMap

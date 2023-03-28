@@ -22,7 +22,7 @@ end
 
 % EM
 
-[sigIt, sigk, sige, lh, maxIt, ank, nf] = em_initial (sigk_ini, 6);
+[sigIt, sigk, sige, lh, maxIt, ank, nf] = em_initial (sigk_ini, 4);
 for i=1:maxIt
     % E step
     c = sum(sigk,2)+sige;

@@ -6,13 +6,13 @@ load no_peak_set.mat
 ac = no_peak_set(11,:);  % channel-11
 % natural 
 plot(f(2:101),ac(2:101),'linewidth',3,'color','black')
-set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
+set(gca,'fontName','Arial','fontSize',16,'fontWeight','bold','xtick',[],'ytick',[],'Box','on')
 xlabel('freq/Hz'); ylabel('Power')
 
 % log
 plot(log10(f(2:101)),log10(ac(2:101)),'linewidth',3,'color','black')
-set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
-xlabel('Log10(freq/Hz)'); ylabel('Log10(Power)')
+set(gca,'fontName','Arial','fontSize',16,'fontWeight','bold','xtick',[],'ytick',[],'Box','on')
+xlabel('Log(freq)'); ylabel('Log(Power)')
 
 % no_peak_set
 freq = log10(f(2:101));
@@ -29,9 +29,27 @@ set(h(1),'Visible','off');
 set(h(2),'EdgeColor','white','FaceColor',[0.7,0.7,1]);
 plot(freq,y,'-black','LineWidth',2);
 
-set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold','ytick',[])
-xlabel('Log10(freq/Hz)'); ylabel('Log10(Power)')
+set(gca,'fontName','Arial','fontSize',18,'fontWeight','bold','xtick',[],'ytick',[])
+xlabel('freq'); ylabel('Power')
 %% 2. PSG仿真
+clc;clear;close all;
+% IRASA
+load irasa.mat
+load no_peak_set.mat
+
+hold on
+plot(irasa_freq, irasa_original_spec,'k','linewidth',3);
+plot(irasa_freq, irasa_fractal_spec,'color','r','linewidth',3);
+plot(irasa_freq, irasa_original_spec-irasa_fractal_spec,'linewidth',3,'color','black');
+legend('Spt','AC','PC')
+set(gca,'fontName','Arial','fontSize',20,'fontWeight','bold','xtick',[],'ytick',[],'Box','on')
+xlabel('freq'); ylabel('Power')
+
+freq = f(2:101); pc = no_peak_set(11,2:101);
+sub = (irasa_original_spec-irasa_fractal_spec);
+cc = pc + sub(1:100);
+plot(freq,cc,'linewidth',3,'color','black')
+set(gca,'fontName','Arial','fontSize',16,'fontWeight','bold','xtick',[],'ytick',[],'Box','on')
 
 
 %% 3. sin仿真
@@ -52,9 +70,8 @@ xlabel('Log10(freq/Hz)'); ylabel('Log10(Power)')
 % end
 load sin_pc.mat f sin_pc ac
 plot(f(2:101),sin_pc(2:101),'linewidth',3,'color','black')
-set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
-xlabel('freq/Hz'); ylabel('Power')
+set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold','xtick',[],'ytick',[])
 
 cc = ac + sin_pc';
 plot(f(2:101),cc(2:101),'linewidth',3,'color','black')
-set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
+set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold','xtick',[],'ytick',[])
