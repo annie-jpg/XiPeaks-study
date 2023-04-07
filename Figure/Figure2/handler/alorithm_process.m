@@ -12,8 +12,8 @@ xlabel('freq')
 ylabel('Power')
 
 % b. PC detection
-[pks,fma,fw] = findpeaks(sptN,freq,'minpeakwidth',0.4,'minpeakheight',0.05,'minpeakprominence',0.02);
-[vlys,fmi] = findpeaks(-sptN,freq,'minpeakwidth',0.85,'minpeakheight',-0.8,'minpeakprominence',0.02,'npeaks',length(pks));
+[pks,fma,fw] = findpeaks(sptN,freq,'minpeakwidth',0.3,'minpeakheight',0.02,'minpeakprominence',0.02);
+[vlys,fmi] = findpeaks(-sptN,freq,'minpeakwidth',0.4,'minpeakheight',-0.8,'minpeakprominence',0.02,'npeaks',length(pks));
 
 plot(freq,sptN,'linewidth',4,'color','black')
 set(gca,'fontName','Arial','fontSize',14,'Box','off','fontWeight','bold','xtick',[],'ytick',[])

@@ -19,12 +19,12 @@ end
 npsd = psd./max(psd);   % psd归一化
 
 warning off
-[pks,fma,fw] = findpeaks(npsd,freq,'minpeakwidth',0.4,'minpeakheight',0.05,'minpeakprominence',0.02);
+[pks,fma,fw] = findpeaks(npsd,freq,'minpeakwidth',0.3,'minpeakheight',0.02,'minpeakprominence',0.02);
 if isempty(pks)
     x0=[]; sigk_ini=[];
     return;
 end
-[~,fmi] = findpeaks(-psd./max(psd),freq,'minpeakwidth',0.85,'minpeakheight',-0.8,'minpeakprominence',0.02,'npeaks',length(pks));
+[~,fmi] = findpeaks(-psd./max(psd),freq,'minpeakwidth',0.4,'minpeakheight',-0.8,'minpeakprominence',0.02,'npeaks',length(pks));
 warning on
 
 % paras

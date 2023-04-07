@@ -2,9 +2,9 @@ clc;clear;close all;
 
 % 一类错误、二类错误的条形统计图
 % TP TN FN FP
-load standard3.mat peakMap
-load XiPi_results3.mat XiPi_peakMap
-load FOF_results3.mat FOOOF_peakMap
+load standard4.mat peakMap
+load XiPi_results4.mat XiPi_peakMap
+load FOF_results4.mat FOOOF_peakMap
 
 
 [F_TP,F_TN,F_FN,F_FP] = getErrorIndex(peakMap,FOOOF_peakMap);

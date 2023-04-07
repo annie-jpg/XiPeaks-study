@@ -1,8 +1,8 @@
 clc;clear;close all;
 % 计算mse
-load standard3.mat AC CC PC
-load  FOF_results3.mat FOF_AC FOF_PC 
-load  XiPi_results3.mat XiPi_AC XiPi_PC
+load standard4.mat AC CC PC
+load  FOF_results4.mat FOF_AC FOF_PC 
+load  XiPi_results4.mat XiPi_AC XiPi_PC
 
 FOF_PC_mse = zeros(100,1);
 XiPi_PC_mse = zeros(100,1);
@@ -49,7 +49,7 @@ boxplot(Y,'Symbol','o','OutlierSize',3,'Colors',[0,0,0]);
 
 % 坐标区域属性设置
 ax=gca;hold on;
-ax.LineWidth=0.8;
+% ax.LineWidth=0.7;
 ax.FontSize=13;
 ax.FontName='Arial';
 ax.XTickLabel={'ξ-π','FOOOF','ξ-π','FOOOF'};

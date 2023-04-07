@@ -2,17 +2,18 @@ clc;clear;close all;
 
 % peakMap
 
-load standard3.mat peakMap
-load XiPi_results3.mat XiPi_peakMap
-load FOF_results3.mat FOOOF_peakMap
+load standard4.mat peakMap
+load XiPi_results4.mat XiPi_peakMap
+load FOF_results4.mat FOOOF_peakMap
 
 %% imagesc  黄色为FP 蓝色为FN
 % standrad
 imagesc(peakMap)
 set(gca,'fontSize',16)
 xlabel('Repeated simulations')  
+ylabel('freq/Hz')
 title('The set centering frequency')
-set(gca,'fontName','Arial','ytick',[])
+set(gca,'fontName','Arial')
 
 % XiPi
 XiPi_sub = XiPi_peakMap - peakMap;

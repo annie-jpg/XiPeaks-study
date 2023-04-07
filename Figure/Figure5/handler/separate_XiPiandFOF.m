@@ -1,7 +1,8 @@
 clc;clear;close all;
 % 用两种算法谱分解，并计算指标(MSE，number of peaks ...)
 
-load standard3.mat
+load standard4.mat
+load standard3.mat f
 
 % 0.5-50Hz
 AC = AC(:,2:101); CC = CC(:,2:101); PC = PC(:,2:101); freq = f(2:101);
@@ -34,7 +35,7 @@ FOF_PC = [];
 FOF_AC = [];
 FOOOF_peakMap = zeros(50,100);
 FOF_peaks_num = zeros(100,1);
-settings = [];
+settings = struct('max_n_peaks',5);
 for i = 1 : size(CC,1)
     fooof_results = fooof(freq,CC(i,:),[0 50], settings, 1);
      % peakmap
@@ -48,4 +49,4 @@ for i = 1 : size(CC,1)
     FOF_peaks_num(i) = size(fooof_results.peak_params,1);
 end
 
-save FOF_results3.mat FOF_PC FOF_AC FOF_peaks_num FOOOF_peakMap
+save FOF_results4.mat FOF_PC FOF_AC FOF_peaks_num FOOOF_peakMap

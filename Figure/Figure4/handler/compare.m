@@ -68,12 +68,12 @@ set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
 hold on
 plot(freq,10.^fooof_results.ap_fit,'linewidth',3,'color','#EDB120')
 set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
-legend('AC','AC - ξπ','AC - FOOOF')
+legend('AC','AC - ξ-π','AC - FOOOF')
 
 % pc
 plot(freq,pc,'linewidth',3,'color','black')
 hold on
 plot(freq, 10.^(fooof_results.fooofed_spectrum) - 10.^(fooof_results.ap_fit),'linewidth',3,'color','#EDB120')
-legend('PC','PC - ξπ','PC - FOOOF')
+legend('PC','PC - ξ-π','PC - FOOOF')
 ylim([0 60])
-set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
+set(gca,'fontName','Arial','fontSize',18,'fontWeight','bold')
