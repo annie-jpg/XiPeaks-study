@@ -1,1 +1,1 @@
-[logo](https://github.com/annie-jpg/XiPeaks-study/blob/master/XiPi_toolbox/Structure.png)
+![logo](https://github.com/annie-jpg/XiPeaks-study/blob/master/XiPi_toolbox/Structure.png)
