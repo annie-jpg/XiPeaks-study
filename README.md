@@ -36,7 +36,7 @@ Then, using the core function :
 [psd_ftd,components] = scmem_unim(freq,spt,[0 0 0]);
 ```
 
-Now, you have separate a aperiodic component and some periodic components. `psd_ftd` represents the sum of all components, and `components` [column 1] represents the AC, [other column] represent the PCs.
+Now, you have separate a aperiodic component (AC) and some periodic components (PCs). `psd_ftd` represents the sum of all components, and `components` [column 1] represents the AC, [other column] represent the PCs.
 <p align="center">
   <img src="assets/sample.png?raw=true"/>
 </p>
@@ -51,10 +51,10 @@ The peak setting includes: <br>
 
 ## Expansion
 For convenience, we provide additional function, including <br>
-[import data `xp_importdata`] <br>
-[calculate PSD `xp_calculateSpec`]<br>
-[batch excute ξ-π `xp_separateSpec`]<br>
-[parameterization `xp_parameterize`]
+[import data: `xp_importdata`] <br>
+[calculate PSD: `xp_calculateSpec`]<br>
+[batch excute: ξ-π `xp_separateSpec`]<br>
+[parameterization: `xp_parameterize`]
 
 ```
 XiPi = xp_importdata([]) % import data.
@@ -72,10 +72,10 @@ The ξ-π algorithm can be:
 * applied to eliminate the impact of aperiodic component.
 
 ## Contributing
-shiang Hu:
-zhihao Zhang:
-jie Ruan:
-Pedro A. Valdes-Sosa:
+shiang Hu: <br>
+zhihao Zhang: <br>
+jie Ruan: <br>
+Pedro A. Valdes-Sosa: 
 
 ## Contributors
 shiang Hu, zhihao Zhang, jie Ruan, Borsh, Pedro A. Valdes-Sosa
