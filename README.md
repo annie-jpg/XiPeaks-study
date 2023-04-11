@@ -58,7 +58,7 @@ settings = [1 0.05 3]   % peak_min_width=1;peak_min_value=0.05;peak_num_limt=3;
 For convenience, we provide additional function, including <br>
 [import data: `xp_importdata`] <br>
 [calculate PSD: `xp_calculateSpec`]<br>
-[batch excute: ξ-π `xp_separateSpec`]<br>
+[batch excute ξ-π: `xp_separateSpec`]<br>
 [parameterization: `xp_parameterize`]
 
 ```
