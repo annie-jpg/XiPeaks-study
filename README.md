@@ -4,7 +4,7 @@
 
 [[`Paper`]()] [[`Biorxiv`]()]
 
-The **XiPi(ξ-π) alorithm** separate periodic and aperiodic neural activity **using nonparametric model**. It work in the spectral domain, like FOOOF,IRASA,SpriNt etc.
+The **XiPi(ξ-π) alorithm** separate periodic and aperiodic neural activity **using nonparametric model**. It works in the spectral domain, like FOOOF, IRASA, SpriNt etc.
 
 <p align="center">
   <img src="assets/Structure.png?raw=true"/>
@@ -15,7 +15,7 @@ The **XiPi(ξ-π) alorithm** separate periodic and aperiodic neural activity **u
 
 ## Installation
 
-The code requires `matlab enviroment`. If you want to compare it with FOOOF, you also need to install `FOOOF`[here](https://fooof-tools.github.io/fooof/index.html).
+The code requires `matlab enviroment`. If you want to compare it with FOOOF, you also need to install `FOOOF` [here](https://fooof-tools.github.io/fooof/index.html).
 
 Install XiPi (ξ-π)
 ```
@@ -37,13 +37,15 @@ Then, using the core function :
 ```
 
 Now, you have separate a aperiodic component and some periodic components. `psd_ftd` represents the sum of all components, and `components` [column 1] represents the AC, [other column] represent the PCs.
-
+<p align="center">
+  <img src="assets/sample.png?raw=true"/>
+</p>
 ## Parameter settings
 For `scmem_unim` function, you can set some parameters to limit the peak fitting. According to your datasets, you can set it empirically.
 If the peak setting is null, we tend to set default for you.<br>
 The peak setting includes: <br>
-`peak_min_width`: The peak whose bandwidth < `peak_min_width` will be not found.
-`peak_min_value`: The peak whose power < `peak_min_value` will be not found.
+`peak_min_width`: The peak whose bandwidth < `peak_min_width` will be not found.<br>
+`peak_min_value`: The peak whose power < `peak_min_value` will be not found.<br>
 `peak_num_limt`: The number of peak detection will <= `peak_num_limt`
 
 ## Expansion
@@ -69,10 +71,13 @@ The ξ-π algorithm can be:
 * applied to eliminate the impact of aperiodic component.
 
 ## Contributing
-
+shiang Hu:
+zhihao Zhang:
+jie Ruan:
+Pedro A. Valdes-Sosa:
 
 ## Contributors
-shiang Hu, zhihao Zhang, jie Ruan, Pedro A. Valdes-Sosa
+shiang Hu, zhihao Zhang, jie Ruan, Borsh, Pedro A. Valdes-Sosa
 
 ## Acknowledgements
 This work was supported by the NSFC Project Number 62101003. 
