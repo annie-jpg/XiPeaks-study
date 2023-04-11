@@ -7,9 +7,9 @@
 The **XiPi(ξ-π) alorithm** separate periodic and aperiodic neural activity. It work in the spectral domain, like FOOOF,IRASA,SpriNt etc.
 
 <p float="left">
-  <img src="assets/Structure.png?raw=true" width="37.25%" />
-  <img src="assets/sample.png?raw=true" width="61.5%" /> 
+  <img src="assets/Structure.png?raw=true"/>
 </p>
+<p style="text-align: center"> The structure of this study </p>
 
 ## Installation
 
