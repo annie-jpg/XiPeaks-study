@@ -34,7 +34,7 @@ plot(freq,sigk_ini(:,3),'linewidth',5,'color','blue')
 plot(freq,sigk_ini(:,4),'linewidth',5,'color','#4DBEEE')
 
 % run XiPeaks
-[psd_ftd,components] = scmem_unim(freq,spt,[0 0 0]);
+[psd_ftd,components] = scmem_unim(freq,spt);
 
 % d. E step  [debug]
 plot(freq,psd_real,'linewidth',4,'color','black')

@@ -27,9 +27,11 @@ function XiPi = xp_separateSepc(XiPi,varargin)
     input = inputParser();
     input.addParameter('choose_channels', 1 : size(XiPi.spectra,1));
     input.addParameter('scale', 'natural',@ischar);
+    input.addParameter('settings',[]);
     input.parse(varargin{:});
     channels = input.Results.choose_channels;
     scale = input.Results.scale;
+    settings = input.Results.settings;
     XiPi.separateSalce = scale;
 
     % waitbar
@@ -39,7 +41,7 @@ function XiPi = xp_separateSepc(XiPi,varargin)
     if  strcmp(scale,'natural')
         for i = channels
             try 
-                [overallfitting,components] = scmem_unim(XiPi.freq',XiPi.spectra(i,:)',[0 0 0]);
+                [overallfitting,components] = scmem_unim(XiPi.freq',XiPi.spectra(i,:)',settings);
                 XiPi.separate.xi = [XiPi.separate.xi;components(:,1)'];
                 XiPi.separate.pi.("spectra_" + num2str(i)) = components(:,2:end)';
                 XiPi.separate.combining = [XiPi.separate.combining;overallfitting'];
@@ -57,7 +59,7 @@ function XiPi = xp_separateSepc(XiPi,varargin)
     if  strcmp(scale,'logarithm')
         for i = channels
             try 
-            [overallfitting,components] = scmem_unim_log(XiPi.freq',log10(XiPi.spectra(i,:)'),[0 0 0]);
+            [overallfitting,components] = scmem_unim_log(XiPi.freq',log10(XiPi.spectra(i,:)'),settings);
             catch
                 XiPi.separate.xi = [XiPi.separate.xi;zeros(1,length(XiPi.freq))];
                 XiPi.separate.pi.("spectra_" + num2str(i)) = [];

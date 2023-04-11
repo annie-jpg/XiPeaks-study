@@ -1,25 +1,34 @@
-function [x0, sigk_ini] = initialfit1(psd,freq,plotflag)
+function [x0, sigk_ini] = initialfit1(psd,freq,settings)
 % Initialize the starting point and bounds for fmincon
 % Input
 %        psd --- power spectrum density in natural scale
 %        freq --- frequency bins
-%        plotflag --- [1 1], plot initialized separate components & picked extremes; ~1, not plot
+%        settings --- [minpeakwidth  minpeakheight  npeaks]  1*3 vetor
 % Ouput
 %        x0 --- starting point
-%        lb/ub --- lower/upper bounds
-%        ank --- actual number of components
+%        sigk_ini --- initial fitting
 % See also FMINCON, PKEXTREM
 
 % Shiang Hu, Jul. 2018
 
-if nargin==2
-    plotflag = [];
+minpeakwidth = 0.8;
+minpeakheight = 0.02;
+npeaks = 3;
+
+if length(settings) > 2
+    npeaks = settings(3);
+end
+if length(settings) > 1
+    minpeakheight = settings(2);
+end
+if ~isempty(settings)
+    minpeakwidth = settings(1);
 end
 
 npsd = psd./max(psd);   % psd归一化
 
 warning off
-[pks,fma,fw] = findpeaks(npsd,freq,'minpeakwidth',0.5,'minpeakheight',0.02,'minpeakprominence',0.02);
+[pks,fma,fw] = findpeaks(npsd,freq,'minpeakwidth',minpeakwidth,'minpeakheight',minpeakheight,'minpeakprominence',0.02,'npeaks',npeaks);
 if isempty(pks)
     x0=[]; sigk_ini=[];
     return;

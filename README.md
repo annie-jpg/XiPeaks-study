@@ -33,7 +33,7 @@ Using matlab command `doc pwelch` to check, or function `xp_calculateSpec`(see l
 
 Then, using the core function :
 ```
-[psd_ftd,components] = scmem_unim(freq,spt,[0 0 0]);
+[psd_ftd,components] = scmem_unim(freq,spt);
 ```
 
 Now, you have separate a aperiodic component (AC) and some periodic components (PCs). `psd_ftd` represents the sum of all components, and `components` [column 1] represents the AC, [other column] represent the PCs.
@@ -46,8 +46,13 @@ For `scmem_unim` function, you can set some parameters to limit the peak fitting
 If the peak setting is null, we tend to set default for you.<br>
 The peak setting includes: <br>
 `peak_min_width`: The peak whose bandwidth < `peak_min_width` will be not found.<br>
-`peak_min_value`: The peak whose power < `peak_min_value` will be not found.<br>
+`peak_min_value`: The peak whose power proportion < `peak_min_value` will be not found.<br>
 `peak_num_limt`: The number of peak detection will <= `peak_num_limt`
+
+```
+settings = [1 0.05 3]   % peak_min_width=1;peak_min_value=0.05;peak_num_limt=3;
+[psd_ftd,components] = scmem_unim(freq,spt,settings);  
+```
 
 ## Expansion
 For convenience, we provide additional function, including <br>

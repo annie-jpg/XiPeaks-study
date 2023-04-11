@@ -17,7 +17,7 @@ legend('CC','AC','PC')
 title('GroudTruth')
 
 %% XiPi
-[psd_ftd,components] = scmem_unim(freq,cc',[0 0 0]);
+[psd_ftd,components] = scmem_unim(freq,cc');
 % ALL
 close all;
 plot(freq,cc,'linewidth',3,'color','black')

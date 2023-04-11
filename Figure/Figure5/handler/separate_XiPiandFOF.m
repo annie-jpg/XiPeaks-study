@@ -15,7 +15,7 @@ XiPi_peaks_num = zeros(100,1);
 % 78 84 error
 for i = 1 : size(CC,1)
     disp(i)
-    [psd_ftd,components] = scmem_unim(freq,CC(i,:)',[0 0 0]);
+    [psd_ftd,components] = scmem_unim(freq,CC(i,:)');
     % peakmap
     [~,loc] = max(components(:,2:end));
     loc = freq(loc);

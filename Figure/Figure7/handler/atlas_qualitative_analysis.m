@@ -6,7 +6,7 @@ load IEEG_spec.mat
 freq = f(2:101); cc = pxx(2:101,3);  %0.5-50Hz
 
 %% XiPi
-[psd_ftd,components] = scmem_unim(freq,cc,[0 0 0]);
+[psd_ftd,components] = scmem_unim(freq,cc);
 plot(freq,cc,'linewidth',1.5);
 hold on
 plot(freq,components(:,1),'linewidth',1.5)

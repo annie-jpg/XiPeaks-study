@@ -1,19 +1,20 @@
-function [psd_ftd,components] = scmem_unim( freq, psd_real, plotflag)
+function [psd_ftd,components] = scmem_unim( freq, psd_real,settings)
 % SCM EM algorithm with unimodal nonparametric fitting
 % Input
 %       psd_real --- power spectrum nf * 1
 %       freq --- frequency vector nf*1
-%       plotflag --- [1 0 0], plot for initialization
-%       w  ----  error vector, default : ones(1,length(freq))
+%       settings --- [minpeakwidth  minpeakheight  npeaks]  1*3 vetor
 % Output
-%       psd_ftd --- [nf-1 * 1] fitted spectrum
-%       sigIt --- save sigk, sige, sigk_sdo in each interation as structure
-%       meta --- [4*maxIt], lh, aic, bic and exitflag with iterations
+%       psd_ftd --- [nf * 1] fitted spectrum
+%       components --- [nf * nc] individual components
 % See SCM-EM v7
 
 % Shiang Hu, Aug. 2, 2018
-% Heuristic fitting
-[~,sigk_ini] = initialfit1(psd_real,freq,plotflag);
+if nargin < 3
+    settings = [];
+end
+
+[~,sigk_ini] = initialfit1(psd_real,freq,settings);
 
 if isempty(sigk_ini)
     psd_ftd = psd_real;components = psd_real;
