@@ -1,21 +1,21 @@
 clc;clear;close all;
-% 定量分析，计算指标  通过band划分
+% quantitative analysis
 load no_peak_set.mat
 
-% 模拟  - 100次
+% simulation  - 100 times
 
-% 1. 从无峰集中随机选取一个，作为AC
+% 1. Random select from no-peak set as AC
 x = randi(33,1,100);
 % x = zeros(1,100) + 11;
 AC = no_peak_set(x,:);
 
-% 2. 随机选择若干正弦波， 随机位置，随机power
+% 2. Random select some sin waves, the center frequency according to band
 fs = 200; N = 13600;
 n=0:N-1; t = n/fs;
 
 PC = [];
 peakNums = zeros(1,100);
-A = [8 13;5 6;15 30;1 1;31 42];
+A = [8 13;5 6;15 30;1 1;31 42];  % center frequency, sorted by alpha,theta,beta,delta,gamma
 B = [4;3;3;7;2];
 
 peakMap = zeros(50,100);  % freq * sample
@@ -24,14 +24,14 @@ for i = 1:100
     pc = zeros(1,13600);
     peakNum = randi(6,1,1)-1; % 0-5
     
-    % 设置中心频率
+    % set CF
     CF = zeros(1,peakNum);
     for j = 1:peakNum
         CF(j) = randi(A(j,:));
     end
     peakMap(CF,i) = 1;
     
-    % 设置Power
+    % set Power
 %     PW = rand(1,peakNum)*2-1 + p(x(i));
     for j = 1:peakNum
         PW(j) = B(j)+p(x(i)) + rand(1,1)*2-1;  % B +- 1
@@ -45,7 +45,7 @@ for i = 1:100
     peakNums(i) = peakNum;
 end
 
-% 3. 混合AC PC -> CC
+% 3. mix AC and PC -> CC
 CC = AC + PC;
 
 save standard.mat CC AC PC peakNums peakMap

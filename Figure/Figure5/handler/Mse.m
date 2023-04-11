@@ -1,5 +1,6 @@
 clc;clear;close all;
-% 计算mse
+
+% calculate MSE
 load standard4.mat AC CC PC
 load  FOF_results4.mat FOF_AC FOF_PC 
 load  XiPi_results4.mat XiPi_AC XiPi_PC
@@ -44,7 +45,7 @@ C7=[126,15,4;122,117,119;255,163,25;135,146,73;30,93,134]./255;
 colorList=C7;
 
 
-% 绘图
+% plot
 boxplot(Y,'Symbol','o','OutlierSize',3,'Colors',[0,0,0]);
 
 % 坐标区域属性设置

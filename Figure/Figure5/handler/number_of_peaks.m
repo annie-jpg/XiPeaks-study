@@ -1,6 +1,6 @@
 clc;clear;close all;
 
-% 对比number of peaks
+% the comparison of peak Number
 load standard4.mat peakNums
 load  FOF_results4.mat FOF_peaks_num
 load  XiPi_results4.mat XiPi_peaks_num

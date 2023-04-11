@@ -1,4 +1,4 @@
-% 指标绘制
+% index plot
 
 % Weighted vector
 clc;clear;close all;
@@ -31,10 +31,10 @@ C6=[23,23,23;121,17,36;44,9,75;31,80,91;61,36,42]./255;
 C7=[126,15,4;122,117,119;255,163,25;135,146,73;30,93,134]./255;
 colorList=C7;
 
-% 绘图
+% boxplot
 boxplot(Y,'Symbol','o','OutlierSize',3,'Colors',[0,0,0]);
 
-% 坐标区域属性设置
+% axis set
 ax=gca;hold on;
 ax.LineWidth=1.1;
 ax.FontSize=13;
@@ -44,7 +44,7 @@ ax.Title.String='Weighted least square';
 ax.Title.FontSize=15;
 ax.YLabel.String='log10(WLS)';
 
-% 修改线条粗细
+% line width
 lineObj=findobj(gca,'Type','Line');
 for i=1:length(lineObj)
     lineObj(i).LineWidth=1;
@@ -52,7 +52,7 @@ for i=1:length(lineObj)
     lineObj(i).MarkerEdgeColor=[1,1,1].*.3;
 end
 
-% 为箱线图的框上色
+% box color
 boxObj=findobj(gca,'Tag','Box');
 for i=1:length(boxObj)
     patch(boxObj(i).XData,boxObj(i).YData,colorList(mod(i,2)+2,:),'FaceAlpha',0.5,...
@@ -70,10 +70,10 @@ Y=[PntSet1,PntSet2];
 C7=[126,15,4;122,117,119;255,163,25;135,146,73;30,93,134]./255;
 colorList=C7;
 
-% 绘图
+% boxplot
 boxplot(Y,'Symbol','o','OutlierSize',3,'Colors',[0,0,0]);
 
-% 坐标区域属性设置
+% axis set
 ax=gca;hold on;
 ax.LineWidth=1.1;
 ax.FontSize=13;
@@ -83,7 +83,7 @@ ax.Title.String='R square';
 ax.Title.FontSize=15;
 ax.YLabel.String='Value';
 
-% 修改线条粗细
+% line width
 lineObj=findobj(gca,'Type','Line');
 for i=1:length(lineObj)
     lineObj(i).LineWidth=1;
@@ -91,7 +91,7 @@ for i=1:length(lineObj)
     lineObj(i).MarkerEdgeColor=[1,1,1].*.3;
 end
 
-% 为箱线图的框上色
+% box color
 boxObj=findobj(gca,'Tag','Box');
 for i=1:length(boxObj)
     patch(boxObj(i).XData,boxObj(i).YData,colorList(mod(i,2)+2,:),'FaceAlpha',0.5,...

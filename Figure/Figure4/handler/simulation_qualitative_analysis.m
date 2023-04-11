@@ -1,20 +1,20 @@
 clc;clear;close all;
-% 定性分析，视觉分析。
+% qualitative simulation, visual analysis
 load no_peak_set.mat
 load irasa324.mat
 
-% 模拟1
-% 1. 从IEEG数据集中挑选带有形状怪异峰的谱，用IRASA去除非周期成分获得 PC
+% 1.Selecting spectra with strangely shaped peaks from the IEEG
+% dataset and using IRASA to remove AC to obtain PC
 freq = f(2:101);
 pc = irasa_original_spec(1:100);
 pc(pc < 0) = 0;  pc(1:30) = 0; pc = pc*8;
 
-% 2. 从无峰集中选取一个，作为AC
+% 2. choose one from no-peak set as AC
 ac = no_peak_set(11,:);
-ac = ac./2; % 缩放
+ac = ac./2; % scale
 ac = ac(2:101);
 
-% 3. 混合PC和AC 谱
+% 3. calculate and mix the AC and PC
 cc = ac + pc;
 plot(freq,cc,'linewidth',3,'color','black')
 set(gca,'fontName','Arial','fontSize',14,'fontWeight','bold')
@@ -29,5 +29,5 @@ xlabel('freq/Hz'); ylabel('Power')
 % ylim([0 20])
 
 save groudtruth_324.mat ac pc cc
-% 4. 使用两种算法分解谱，并展示AC和PC与ground truth的比较
+% 4.Use XiPi and FOOF to decompose spectra and demonstrate the comparison between AC and PC with ground truth
 % compare.m

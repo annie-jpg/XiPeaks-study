@@ -1,5 +1,5 @@
 clc;clear;close all;
-% IEEG atlas 定量分析，计算指标
+% IEEG atlas quantitative analysis, calculating some index
 load IEEG_spec.mat
 load w.mat
 freq = f(2:101); pxx = pxx(2:101,:);  % 0.5-50Hz

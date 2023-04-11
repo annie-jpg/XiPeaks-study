@@ -1,5 +1,5 @@
 clc;clear;close all;
-% 用两种算法谱分解，并计算指标(MSE，number of peaks ...)
+% Using XiPi and FOOOF to decompose spectral and calculate some index (MSE，number of peaks,error Index...)
 
 load standard4.mat
 load standard3.mat f

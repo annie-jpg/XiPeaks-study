@@ -6,7 +6,7 @@ load standard4.mat peakMap
 load XiPi_results4.mat XiPi_peakMap
 load FOF_results4.mat FOOOF_peakMap
 
-%% imagesc  黄色为FP 蓝色为FN
+%% imagesc
 % standrad
 imagesc(peakMap)
 set(gca,'fontSize',16)

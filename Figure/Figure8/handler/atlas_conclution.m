@@ -1,6 +1,9 @@
 clc;clear;close all;
 
-% 使用atlas论文中的结论印证
+% Using the conclusions from paper to confirm
+% cite: Frauscher - 2018 - Atlas of the normal intracranialelectroencephalogram: neurophysiological awake activity in different cortical areas
+
+% All results have been calculated.
 cmap = parula(8);
 
 % Cuneus

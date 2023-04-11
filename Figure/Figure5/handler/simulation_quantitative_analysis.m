@@ -1,5 +1,5 @@
 clc;clear;close all;
-% 定量分析，计算指标
+% 定量分析，计算指标 [old]
 load no_peak_set.mat
 
 % 模拟2 - 100次

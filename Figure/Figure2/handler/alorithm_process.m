@@ -1,5 +1,5 @@
 clc;clear;close all;
-% 算法流程示意图  [debug]
+% alorithm process
 load process_data.mat freq spt
 
 freq = freq(2:257); spt = spt(2:257);
@@ -32,7 +32,10 @@ plot(freq,sigk_ini(:,2),'linewidth',5,'color','green')
 plot(freq,sigk_ini(:,3),'linewidth',5,'color','blue')
 plot(freq,sigk_ini(:,4),'linewidth',5,'color','#4DBEEE')
 
-% d. E step
+% run XiPeaks
+[psd_ftd,components] = scmem_unim(freq,spt,[0 0 0]);
+
+% d. E step  [debug]
 plot(freq,psd_real,'linewidth',4,'color','black')
 set(gca,'fontName','Arial','fontSize',14,'Box','off','fontWeight','bold','xtick',[],'ytick',[])
 ylim([0 250]); axis off;
@@ -42,8 +45,7 @@ plot(freq,sigk_sdo(:,2),'linewidth',3,'color','green')
 plot(freq,sigk_sdo(:,3),'linewidth',5,'color','blue')
 plot(freq,sigk_sdo(:,4),'linewidth',5,'color','#4DBEEE')
 
-
-% e. M step
+% e. M step [debug]
 plot(freq,sigk_sdo(:,2),'linewidth',3,'color','green','marker','x')
 set(gca,'fontName','Arial','fontSize',14,'Box','off','fontWeight','bold','xtick',[],'ytick',[])
 hold on
@@ -63,4 +65,3 @@ set(gca,'fontName','Arial','fontSize',14,'Box','off','fontWeight','bold','xtick'
 hold on
 plot(freq,psd_ftd,'linewidth',3,'color','r')
 
-% [psd_ftd,components] = scmem_unim(freq,spt,[0 0 0]);

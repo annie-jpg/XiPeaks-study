@@ -1,4 +1,6 @@
 clc;clear;close all;
+% sleep study, all results have been calculated.
+
 %% A - exponent dst
 load exponent.mat
 bp = BarPlot('ylabel', 'Exponent');

@@ -1,6 +1,6 @@
 clc;clear;close all;
 
-% 一类错误、二类错误的条形统计图
+% error Index
 % TP TN FN FP
 load standard4.mat peakMap
 load XiPi_results4.mat XiPi_peakMap
@@ -10,15 +10,15 @@ load FOF_results4.mat FOOOF_peakMap
 [F_TP,F_TN,F_FN,F_FP] = getErrorIndex(peakMap,FOOOF_peakMap);
 [X_TP,X_TN,X_FN,X_FP] = getErrorIndex(peakMap,XiPi_peakMap);
 
-% 准确率
+% Acc
 F_accuracy = (F_TP+F_TN) / 5000;
 X_accuracy = (X_TP+X_TN) / 5000;
 
-% 查准率
+% Precision
 F_precision = F_TP / (F_TP+F_FP);
 X_precision = X_TP / (X_TP+X_FP);
 
-% 查全率
+% Sensitivity
 F_recall = F_TP / (F_TP+F_FN);
 X_recall = X_TP / (X_TP+X_FN);
 

@@ -1,5 +1,5 @@
 clc;clear;close all;
-% IEEG atlas 定性分析
+% IEEG atlas qualitative
 load IEEG_spec.mat
 
 % channel - 3

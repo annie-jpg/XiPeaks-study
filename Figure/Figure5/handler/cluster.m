@@ -1,5 +1,5 @@
 clc;clear;close all;
-% 聚类，以获得无峰集
+% cluster, to obtain no-peak set
 
 load IEEG_spec.mat
 

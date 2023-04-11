@@ -1,11 +1,13 @@
 clc;clear;close all;
+
+% the usage of IRASA
 load IEEG1772_data.mat Data_W
 % 134   324  345  470  485   Precantral 56
-dat = Precantral(56,:);
+dat = Data_W(56,:);
 
 % simulate a 10Hz and 60 Hz oscillatory component
 data.trial{1,1} = dat;
-data.time{1,1}  = [0.005:0.005:13600*0.005];
+data.time{1,1}  = (0.005:0.005:13600*0.005);
 data.label{1}     = 'chan';
 data.trialinfo(1,1) = 1;
 
