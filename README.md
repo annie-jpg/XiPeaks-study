@@ -40,6 +40,7 @@ Now, you have separate a aperiodic component and some periodic components. `psd_
 <p align="center">
   <img src="assets/sample.png?raw=true"/>
 </p>
+
 ## Parameter settings
 For `scmem_unim` function, you can set some parameters to limit the peak fitting. According to your datasets, you can set it empirically.
 If the peak setting is null, we tend to set default for you.<br>
